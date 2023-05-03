@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Document</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="vendor/bootstrap.css" />
+	<link rel="stylesheet" href="vendor/angular-material.min.css" />
+	<link rel="stylesheet" href="vendor/font-awesome.css" />
+	<link rel="stylesheet" href="1.css" />
+</head>
+
+<body ng-app="myApp" ng-controller="MyController">
+	<div class="jumbotron">
+		<h1 class="display-3">Jumbo heading</h1>
+		<p class="lead">Jumbo helper text</p>
+		<hr class="my-2" />
+
+		<div class="card" ng-repeat="motnguoi in nhieunguoi" ng-init="motnguoi.hienra = false" ng-show="motnguoi.hienra">
+			<div class="card-header" style="text-align: center">Sửa thông tin</div>
+			<div class="card-block">
+				<b>Tên: </b>
+				<input type="text" class="form-control" ng-model="motnguoi.ten" />
+				<b>Tuổi: </b>
+				<input type="text" class="form-control" ng-model="motnguoi.tuoi" />
+				<b>SDT: </b>
+				<input type="text" class="form-control" ng-model="motnguoi.sdt" />
+				<b style="margin-top: 15px" class="btn btn-outline-danger btn-block" ng-click="doi(motnguoi)">Lưu</b>
+			</div>
+		</div>
+
+		<div class="card" ng-repeat="motnguoi in nhieunguoi" ng-show="!motnguoi.hienra">
+			<div class="card-header">
+				Thông tin về: {{motnguoi.ten}}
+				<button class="fa fa-icon float-xs-right" ng-click="doi(motnguoi)">
+					<i class="fa fa-pencil"></i>
+				</button>
+			</div>
+			<div class="card-block">
+				<b>Tên: </b> <i>{{motnguoi.ten}}</i> <br />
+				<b>Tuổi: </b> <i>{{motnguoi.tuoi}}</i> <br />
+				<b>SDT: </b> <i>{{motnguoi.sdt}}</i>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="vendor/bootstrap.js"></script>
+	<script type="text/javascript" src="vendor/angular-1.5.min.js"></script>
+	<script type="text/javascript" src="vendor/angular-animate.min.js"></script>
+	<script type="text/javascript" src="vendor/angular-aria.min.js"></script>
+	<script type="text/javascript" src="vendor/angular-messages.min.js"></script>
+	<script type="text/javascript" src="vendor/angular-material.min.js"></script>
+	<script type="text/javascript" src="1.js"></script>
+</body>
+
+</html>
